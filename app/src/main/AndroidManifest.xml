@@ -2,21 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sudarshan.bhatt.shakenlight">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
 
     <application
-        android:hardwareAccelerated="true"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
 
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,11 +27,14 @@
 
         <receiver android:name=".FlightModeReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"></action>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
             </intent-filter>
-
-
         </receiver>
+
+        <service
+            android:name=".Shakedetector"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
