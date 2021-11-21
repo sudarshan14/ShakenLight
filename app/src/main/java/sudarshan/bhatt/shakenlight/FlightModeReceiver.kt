@@ -8,7 +8,7 @@ import android.widget.Toast
 class FlightModeReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
 
-        Toast.makeText(context, "action changed", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "action changed today", Toast.LENGTH_LONG).show()
 
     }
 }
